@@ -17,9 +17,8 @@ systemctl status jenkins
 
 Install docker:
 yum install docker
-service start docker
-systemctl start docker
-systemctl docker status
+systemctl enable docker
+systemctl start docker 
 systemctl status docker
 ----------------------------
 Add a docker user as dockeradmin:
