@@ -15,4 +15,49 @@ systemctl start jenkins
 systemctl status jenkins
 ##############################################################
 
+Install docker:
+yum install docker
+service start docker
+systemctl start docker
+systemctl docker status
+systemctl status docker
+----------------------------
+Add a docker user as dockeradmin:
+adduser dockeradmin
+passwd dockeradmin
+----------------------------
+To run the user we have to give permission follow below instruction:
+run visudo command
+Under allow root to runany commands anywhere add:
+dockeradmin  ALL=(ALL)  NOPASSWD: ALL
+----------------------------
+We have to establish the ssh connection and enter this path to establish:
+run vi /etc/ssh/sshd_config 
+set "PasswordAuthentication yes"
+----------------------------
+Next we have to give permission for the user:
+run usermod -a -G docker dockeradmin
+run "service sshd restart"
+----------------------------
+Go inside docker user and write the docker file vi Dockerfile:
+# Pull base image
+From tomcat:latest
+
+# Maintainer
+MAINTAINER "deep"
+
+# copy war file on to container
+COPY ./sampleapp.war /usr/local/tomcat/webapps
+##############################################################
+
 Configure Jenkins:
+1. Copy the public ip & paste in browse along with the port number to access Jenkins UI.
+2. To get the password copy the path from UI "/var/lib/jenkins/secrets/initialAdminPassword" and paste it in aws terminal with cat command.
+3. Copy and Paste the password to login.
+4. Select install suggested plugins.
+5. Now we have to give username and  password and email and clickon save and continue. 
+6. The dashboard of Jenkins will appear.
+7. Next we have to go for manage Jenkins to download plugin.
+8. Next we have to install publish over ssh plugin in Jenkins.
+9. Next we have to configure maven in global tool configuration in jenkins.
+10. 
