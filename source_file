@@ -1,2 +1,8 @@
-CICD pipeline using Jenkins and Docker 
-Deploying war file to Docker Container
+CICD pipeline using Jenkins and Docker Deploying war file to Docker Container.
+Steps to follow:
+1. Launch one  instances for Jenkins and Docker 
+2. Install Jenkins  in ec2 instance 
+3. Install Docker in ec2 instance 
+4. Deploying war file to Docker Container
+
+
