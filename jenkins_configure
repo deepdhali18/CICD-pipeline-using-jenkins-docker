@@ -15,7 +15,7 @@ Configure Jenkins:
       use password authentication option - Give the password of docker user in passphrase.
       Give the password of docker user in proxy password.
 11. Create a new project and select freestyle project.
-12. Provide the Git URL. Provide branch name.
+12. Provide the Git URL "https://github.com/deepdhali18/cicd-for-webapp-1.git" Provide branch name "*/master"
 13. In Build step - 
         Select maven and in goals mention as "clean install".
         Under build step select "send files or execute commands over ssh".
