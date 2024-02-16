@@ -1,1 +1,11 @@
-
+Configure Jenkins:
+1. Copy the public ip & paste in browse along with the port number to access Jenkins UI.
+2. To get the password copy the path from UI "/var/lib/jenkins/secrets/initialAdminPassword" and paste it in aws terminal with cat command.
+3. Copy and Paste the password to login.
+4. Select install suggested plugins.
+5. Now we have to give username and  password and email and clickon save and continue. 
+6. The dashboard of Jenkins will appear.
+7. Next we have to go for manage Jenkins to download plugin.
+8. Next we have to install publish over ssh plugin in Jenkins.
+9. Next we have to configure maven in global tool configuration in jenkins.
+10. 
