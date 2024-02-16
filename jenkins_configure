@@ -8,4 +8,38 @@ Configure Jenkins:
 7. Next we have to go for manage Jenkins to download plugin.
 8. Next we have to install publish over ssh plugin in Jenkins.
 9. Next we have to configure maven in global tool configuration in jenkins.
-10. 
+10. Next we have to configure publish over ssh plugin in configure system.
+      Click on ssh server
+      Give name Hostname(private ip) of Jenkins and username dockeradmin
+      Remote directory - /
+      use password authentication option - Give the password of docker user in passphrase.
+      Give the password of docker user in proxy password.
+11. Create a new project and select freestyle project.
+12. Provide the Git URL. Provide branch name.
+13. In Build step - 
+        Select maven and in goals mention as "clean install".
+        Under build step select "send files or execute commands over ssh".
+        In ssh server enter name "deep"
+        In transfer set ,
+              source file enter "target/sampleapp.war"
+              remove prefix enter "target"
+              remote directory enter "/"
+              Exec command enter -
+                  docker stop deep;
+                  docker rm -f deep;
+                  docker image rm -f deep;
+                  cd /home/dockeradmin;
+                  docker build -t deep .
+        Under post-build step select "send build artifacts over ssh"
+        In ssh server name enter "deep"
+        In Exec command enter "docker run -it -d --name deep -p 8090:8080 deep"
+14. Select Apply and Save
+15. Select Buid now 
+16. Copy the docker instance public ip and paste it in browser we can access our war file.
+17. We can see the images in docker terminal and use the below command "docker ps"
+18. We can see our war file successfully deployed use command "ls"
+
+
+
+
+      
